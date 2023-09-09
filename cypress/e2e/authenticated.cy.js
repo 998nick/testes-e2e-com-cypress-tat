@@ -24,20 +24,20 @@ describe('Scenarios where authentication is a pre-condition', () => {
     cy.wait('@getNotes')
   })
 
-  it.only('successfully submits the settings form', () => {
+  it('successfully submits the settings form', () => {
     cy.intercept('POST', '**/prod/billing').as('paymentRequest')
 
     cy.fillSettingsFormAndSubmit()
 
-    cy.wait('@getNotes')
+    //cy.wait('@getNotes')
     cy.wait('@paymentRequest')
       .its('state')
       .should('be.equal', 'Complete')
   })
 
-  it.only('logs out', () => {
+  it('logs out', () => {
     cy.visit('/')
-    cy.wait('@getNotes')
+    //cy.wait('@getNotes')
 
     if (Cypress.config('viewportWidth') < Cypress.env('viewportWidthBreakpoint')) {
       cy.get('.navbar-toggle.collapsed')
