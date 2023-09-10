@@ -18,8 +18,8 @@ Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
 
 
 Cypress.Commands.add('guiLogin', (
-  username = Cypress.env('USER_EMAIL'),
-  password = Cypress.env('USER_PASSWORD')
+  username = 'aef4b76a-790f-4e6a-9e9d-a18eafefa242@vhbizlsi.mailosaur.net',//Cypress.env('USER_EMAIL'),
+  password = 's3Cre7P@sSw0rd'//Cypress.env('USER_PASSWORD')
 ) => {
   cy.intercept('GET', '**/notes').as('getNotes')
   cy.visit('/login')
