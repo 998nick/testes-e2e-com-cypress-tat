@@ -18,8 +18,8 @@ Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
 
 
 Cypress.Commands.add('guiLogin', (
-  username = 'aef4b76a-790f-4e6a-9e9d-a18eafefa242@vhbizlsi.mailosaur.net',//Cypress.env('USER_EMAIL'),
-  password = 's3Cre7P@sSw0rd'//Cypress.env('USER_PASSWORD')
+  username = Cypress.env('USER_EMAIL'),
+  password = Cypress.env('USER_PASSWORD')
 ) => {
   cy.intercept('GET', '**/notes').as('getNotes')
   cy.visit('/login')
@@ -31,11 +31,11 @@ Cypress.Commands.add('guiLogin', (
 })
 
 Cypress.Commands.add('sessionLogin', (
-  username = 'aef4b76a-790f-4e6a-9e9d-a18eafefa242@vhbizlsi.mailosaur.net',//Cypress.env('USER_EMAIL'),
-  password = 's3Cre7P@sSw0rd'//Cypress.env('USER_PASSWORD')
+  username = Cypress.env('USER_EMAIL'),
+  password = Cypress.env('USER_PASSWORD')
 ) => {
-  const login = () => cy.guiLogin(username, password)
-  cy.session(username, login)
+  cy.guiLogin(username, password)
+  //cy.session(username, login)
 })
 
 // cypress/support/commands.js
