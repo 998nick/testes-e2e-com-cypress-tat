@@ -34,8 +34,8 @@ Cypress.Commands.add('sessionLogin', (
   username = Cypress.env('USER_EMAIL'),
   password = Cypress.env('USER_PASSWORD')
 ) => {
-  cy.guiLogin(username, password)
-  //cy.session(username, login)
+  const login = () => cy.guiLogin(username, password)
+  cy.session(username, login)
 })
 
 // cypress/support/commands.js
