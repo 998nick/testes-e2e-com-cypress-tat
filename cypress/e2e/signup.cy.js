@@ -3,7 +3,7 @@
 import { faker } from '@faker-js/faker/locale/en'
 
 describe('Sign up', () => {
-  const emailAddress = `${faker.datatype.uuid()}@${Cypress.env('MAILOSAUR_SERVER_ID')}.mailosaur.net`
+  const emailAddress = `${faker.datatype.uuid()}@vhbizlsi.mailosaur.net`
   const password = 's3Cre7P@sSw0rd'//Cypress.env('USER_PASSWORD')
 
   it('successfully signs up using confirmation code sent via email', () => {
